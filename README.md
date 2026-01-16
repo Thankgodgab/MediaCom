@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+# MediaCom 🎙️
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A professional LAN-based real-time intercom app designed for church media teams. Coordinate sound, camera, and directing seamlessly without internet.
 
-## Get started
+## ✨ Features
+- **Low Latency Audio**: Powered by WebRTC (Mesh Networking).
+- **LAN-Only**: Works purely on your local Wi-Fi.
+- **Push-To-Talk (PTT)**: Minimize background noise with classic walkie-talkie functionality.
+- **Group Intercom**: Everyone hears everyone else (echo-free).
+- **Professional UI**: Modern dark theme with high-fidelity animations and status tracking.
+- **Role Management**: Specialized modes for Directors and Team Members.
 
-1. Install dependencies
+## 🚀 Getting Started
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### 1. Start the Signaling Server
+The server coordinates connections between devices on the network.
 ```bash
-npm run reset-project
+cd mediacom-server
+npm install
+node server.js
 ```
+*Tip: Run this on a laptop that stays on during the service.*
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Connect Your Devices
+1. Ensure all phones are on the same Wi-Fi as the server.
+2. Open the MediaCom app.
+3. Enter your **Name** and the **Local IP Address** of the server (e.g., `192.168.1.15`).
+4. Tap **JOIN CHANNEL**.
 
-## Learn more
+### 3. Usage
+- **Hold the Big Mic** to speak.
+- Other team members will see you "TRANSMITTING".
+- Audio is routed through the phone speaker by default.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🛠 Tech Stack
+- **Frontend**: React Native via Expo.
+- **Real-time Audio**: `react-native-webrtc`.
+- **Signaling**: `socket.io` (running on Node.js).
+- **Animations**: `react-native-reanimated`.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## ⚙️ Requirements
+- All devices must be on the same local network subnet.
+- Microphone permissions must be granted.
+- The signaling server port (`3000`) must be open in any local firewalls.
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+Built with ❤️ for Media Teams.

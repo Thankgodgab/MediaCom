@@ -12,10 +12,11 @@ const io = new Server(server, {
 
 // Discovery endpoint
 app.get("/status", (req, res) => {
-  const roomList = Array.from(rooms.entries()).map(([id, users]) => ({
+  console.log(`🔍 Discovery ping from ${req.ip}`);
+  const roomList = Array.from(rooms.entries()).map(([id, userMap]) => ({
     id,
-    name: id, // For now room ID is the name
-    userCount: users.size,
+    name: id,
+    userCount: userMap.size,
   }));
   res.json({ status: "ok", rooms: roomList });
 });
@@ -82,6 +83,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, "0.0.0.0", () => {
-  console.log("MediaCom Signaling Server running on port 3000");
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`MediaCom Signaling Server running on port ${PORT}`);
 });

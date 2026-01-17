@@ -41,7 +41,7 @@ node server.js
 ## ⚙️ Requirements
 - All devices must be on the same local network subnet.
 - Microphone permissions must be granted.
-- The signaling server port (`3000`) must be open in any local firewalls.
+- The signaling server port (`3001`) must be open in any local firewalls.
 
 ---
 Built with ❤️ for Media Teams.

@@ -2,6 +2,7 @@ import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from 'expo-av';
 import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 import { Alert } from 'react-native';
+import { IntercomProvider } from '../hooks/useIntercom';
 
 export default function RootLayout() {
   useEffect(() => {
@@ -34,6 +35,10 @@ export default function RootLayout() {
 
   };
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <IntercomProvider>
+      <Stack screenOptions={{ headerShown: false }} />;
+    </IntercomProvider>
+  )
 }
                                                 
